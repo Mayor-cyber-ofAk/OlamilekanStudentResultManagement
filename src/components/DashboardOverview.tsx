@@ -301,12 +301,12 @@ export const DashboardOverview: React.FC<DashboardOverviewProps> = ({
           {/* Audit Stream Snippet */}
           <div className="bg-white border border-[#E5E4D8] rounded-2xl p-5 shadow-xs space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-bold text-[#2D3321]">Recent Audit Events</h2>
+              <h2 className="text-sm font-bold text-[#2D3321]">Recent Senate Gazette Activity</h2>
               <button
                 onClick={() => onNavigateTab('audit')}
-                className="text-xs text-[#7C8964] hover:text-[#5C6847] font-semibold cursor-pointer"
+                className="text-xs text-[#5C6847] hover:text-[#3E472F] font-semibold cursor-pointer"
               >
-                View all
+                View full gazette
               </button>
             </div>
 

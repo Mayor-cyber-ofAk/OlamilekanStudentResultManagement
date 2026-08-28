@@ -331,17 +331,17 @@ export const GradebookView: React.FC<GradebookViewProps> = ({
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center space-x-2">
-              <span className="text-xs font-bold text-[#7C8964] uppercase tracking-wider">
-                Automated Calculation Engine
+              <span className="text-xs font-bold text-[#5C6847] uppercase tracking-wider">
+                Departmental Academic Broadsheet
               </span>
               <span className="text-[#A3A295]">•</span>
-              <span className="text-xs text-[#7A7D70] font-mono font-medium">Weighted Matrix Mode</span>
+              <span className="text-xs text-[#7A7D70] font-medium">CA + Examination Matrix (NUC 5.0 Scale)</span>
             </div>
             <h1 className="text-xl font-bold text-[#2D3321] tracking-tight flex items-center space-x-2">
               <span>{selectedCourse?.code}: {selectedCourse?.title}</span>
             </h1>
             <p className="text-xs text-[#7A7D70]">
-              Instructor: <span className="text-[#2D3321] font-medium">{selectedCourse?.instructorName}</span> • Term: <span className="text-[#2D3321] font-medium">{selectedCourse?.semesterName}</span>
+              Course Examiner / Lecturer: <span className="text-[#2D3321] font-semibold">{selectedCourse?.instructorName}</span> • Session: <span className="text-[#2D3321] font-medium">{selectedCourse?.semesterName}</span>
             </p>
           </div>
 
@@ -351,7 +351,7 @@ export const GradebookView: React.FC<GradebookViewProps> = ({
               id="select-active-course"
               value={selectedCourseId}
               onChange={(e) => onSelectCourse(e.target.value)}
-              className="bg-[#FDFCF7] border border-[#E5E4D8] text-[#2D3321] rounded-xl px-3 py-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#7C8964]"
+              className="bg-[#FDFCF7] border border-[#E5E4D8] text-[#2D3321] rounded-xl px-3 py-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#5C6847]"
             >
               {courses.map(c => (
                 <option key={c.id} value={c.id}>
@@ -363,29 +363,29 @@ export const GradebookView: React.FC<GradebookViewProps> = ({
             <button
               id="btn-curve-studio"
               onClick={() => setShowCurveModal(true)}
-              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs"
+              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs cursor-pointer"
             >
-              <Sliders className="w-3.5 h-3.5 text-[#7C8964]" />
-              <span>Curve Studio {selectedCourse?.curveOffset ? `(+${selectedCourse.curveOffset}%)` : ''}</span>
+              <Sliders className="w-3.5 h-3.5 text-[#5C6847]" />
+              <span>Senate Moderation {selectedCourse?.curveOffset ? `(+${selectedCourse.curveOffset}%)` : ''}</span>
             </button>
 
             <button
               id="btn-manage-components"
               onClick={() => setShowComponentsModal(true)}
-              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs"
+              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs cursor-pointer"
             >
-              <Plus className="w-3.5 h-3.5 text-[#7C8964]" />
-              <span>Rubric Weights</span>
+              <Plus className="w-3.5 h-3.5 text-[#5C6847]" />
+              <span>CA & Exam Weights</span>
             </button>
 
             <button
               id="btn-export-csv"
               onClick={handleExportCsv}
-              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs"
-              title="Export Gradebook to CSV"
+              className="px-3 py-2 bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#2D3321] rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all shadow-xs cursor-pointer"
+              title="Download Departmental Broadsheet"
             >
               <Download className="w-3.5 h-3.5 text-[#7A7D70]" />
-              <span className="hidden sm:inline">Export</span>
+              <span className="hidden sm:inline">Export Broadsheet</span>
             </button>
           </div>
         </div>
@@ -401,7 +401,7 @@ export const GradebookView: React.FC<GradebookViewProps> = ({
             </div>
             <span className="text-[#7A7D70] text-[11px] font-medium">
               {isWeight100 
-                ? 'Component weights mathematically balanced to 100%.' 
+                ? 'Continuous Assessment (CA) & Examination components balance to exactly 100%.' 
                 : `Weights must sum to 100% (currently ${totalWeight > 100 ? 'over' : 'under'} by ${Math.abs(100 - totalWeight).toFixed(1)}%).`}
             </span>
           </div>
@@ -412,20 +412,20 @@ export const GradebookView: React.FC<GradebookViewProps> = ({
                 id="btn-save-grades"
                 onClick={handleSaveGrades}
                 disabled={saving}
-                className="px-4 py-1.5 bg-[#7C8964] hover:bg-[#6C7954] text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-xs transition-all animate-pulse"
+                className="px-4 py-1.5 bg-[#5C6847] hover:bg-[#4D573B] text-white rounded-lg text-xs font-bold flex items-center space-x-1.5 shadow-xs transition-all animate-pulse cursor-pointer"
               >
                 <Save className="w-3.5 h-3.5" />
-                <span>{saving ? 'Calculating...' : `Save & Auto-Calculate (${dirtyCount})`}</span>
+                <span>{saving ? 'Saving...' : `Save Scores (${dirtyCount})`}</span>
               </button>
             )}
 
             <button
               id="btn-publish-grades"
               onClick={handlePublishGrades}
-              className="px-3.5 py-1.5 bg-[#5C6847] hover:bg-[#4E583C] text-white rounded-lg text-xs font-semibold flex items-center space-x-1.5 shadow-xs transition-all"
+              className="px-3.5 py-1.5 bg-[#1B4D3E] hover:bg-[#143B30] text-white rounded-lg text-xs font-semibold flex items-center space-x-1.5 shadow-xs transition-all cursor-pointer"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>Publish Official</span>
+              <span>Approve & Gazette Results</span>
             </button>
           </div>
         </div>

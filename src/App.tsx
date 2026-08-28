@@ -7,7 +7,6 @@ import { GradebookView } from './components/GradebookView';
 import { AnalyticsView } from './components/AnalyticsView';
 import { TranscriptView } from './components/TranscriptView';
 import { StudentPortalView } from './components/StudentPortalView';
-import { SqlConsoleView } from './components/SqlConsoleView';
 import { AuditTrailView } from './components/AuditTrailView';
 import { AtRiskView } from './components/AtRiskView';
 
@@ -187,8 +186,6 @@ export default function App() {
               }}
             />
           )}
-
-          {activeTab === 'sql_console' && <SqlConsoleView />}
 
           {activeTab === 'audit' && <AuditTrailView />}
 

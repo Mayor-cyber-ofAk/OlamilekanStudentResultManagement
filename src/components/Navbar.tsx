@@ -36,17 +36,17 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center justify-between h-16">
           {/* Brand & Institution Info */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-[#7C8964] flex items-center justify-center shadow-xs text-white font-bold">
+            <div className="w-10 h-10 rounded-xl bg-[#5C6847] flex items-center justify-center shadow-xs text-white font-bold">
               <GraduationCap className="w-6 h-6" />
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="font-bold text-lg tracking-tight text-[#2D3321]">Gradex OS</span>
+                <span className="font-bold text-lg tracking-tight text-[#2D3321]">FUST Academic Portal</span>
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#EAE9DE] text-[#5C6847] font-semibold border border-[#E5E4D8]">
-                  Federal University Portal
+                  Federal University Registry
                 </span>
               </div>
-              <p className="text-xs text-[#7A7D70]">Second Semester 2025/2026 (Rain) • NUC 5.0 Scale</p>
+              <p className="text-xs text-[#7A7D70]">Rain (2nd) Semester 2025/2026 • NUC 5.0 CGPA Standard</p>
             </div>
           </div>
 
@@ -59,8 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="p-2 rounded-xl bg-[#F2F1E9] hover:bg-[#EAE9DE] border border-[#E5E4D8] text-[#3A3D30] transition-colors text-xs flex items-center space-x-1.5 cursor-pointer"
                 title="Recalculate & Sync"
               >
-                <RefreshCw className="w-3.5 h-3.5 text-[#7C8964]" />
-                <span className="hidden sm:inline font-medium">Sync Database</span>
+                <RefreshCw className="w-3.5 h-3.5 text-[#5C6847]" />
+                <span className="hidden sm:inline font-medium">Synchronize Results</span>
               </button>
             )}
 

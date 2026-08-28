@@ -1,6 +1,6 @@
 {
-  "name": "Automated Grading & Academic Records System",
-  "description": "Comprehensive automated grading, GPA calculation, and academic records management system with role-based authentication, interactive gradebooks, transcript generation, and performance reporting.",
+  "name": "Federal University Portal - Senate Results & Academic Records System",
+  "description": "Official Nigerian university academic management portal for Continuous Assessment (CA) and Examination results, NUC 5.0 CGPA calculations, Senate result approval gazettes, and official verified transcripts.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
